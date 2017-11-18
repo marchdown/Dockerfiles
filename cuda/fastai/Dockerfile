@@ -1,7 +1,7 @@
 FROM nvidia/cuda:8.0-cudnn5-runtime-ubuntu16.04
 
-MAINTAINER CeShine Lee <ceshine@ceshine.net>
-
+MAINTAINER marchdown <marchdown@gmail.com>
+# forked from a version by CeShine Lee <ceshine@ceshine.net>
 # Based on https://github.com/anurag/fastai-course-1/
 
 ARG PYTHON_VERSION=3.6
@@ -58,10 +58,10 @@ ENV PATH=$PATH:$CUDA_ROOT/bin:$HOME/bin
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_ROOT/lib64
 
 # Jupyter
-EXPOSE 8888
+EXPOSE 88888
 
 # Clone fast.ai source
 RUN git clone -q https://github.com/fastai/courses.git fastai-courses
 WORKDIR /home/$USERNAME/fastai-courses/
 
-CMD jupyter notebook --ip=0.0.0.0 --port=8888
+CMD jupyter notebook --ip=0.0.0.0 --port=88888
